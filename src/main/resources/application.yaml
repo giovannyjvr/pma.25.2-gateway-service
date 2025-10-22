@@ -24,3 +24,27 @@ spring:
               uri: http://account:8080
               predicates:
                 - Path=/account/**
+
+            - id: auth
+              uri: http://auth:8080
+              predicates:
+                - Path=/auth/**
+                
+            - id: product
+              uri: http://product:8080  # Ajuste a porta se necessário
+              predicates:
+                - Path=/product/**  # Rota para o serviço de produtos
+
+
+
+          globalcors:
+            corsConfigurations:
+              '[/**]':
+                allowedOrigins: "*"
+                allowedHeaders: "*"
+                allowedMethods: "*"
+
+logging:
+  level:
+    root: info
+    store: debug
